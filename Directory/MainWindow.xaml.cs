@@ -20,17 +20,33 @@ namespace Directory {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-            level1.Foreground = Brushes.Red;
-            level2.Foreground = Brushes.Green;
+            EnableDisableButton();            
         }
 
-        private void btnLevel1_Click(object sender, RoutedEventArgs e) {
-            level1.Foreground = Brushes.White;
+        private void EnableDisableButton() {
+            if (treeView.SelectedItem == null) {
+                btn_AddFolder.IsEnabled = false;
+                btn_AddFile.IsEnabled = false;
+            }
+            treeView.GotFocus += TreeView_GotFocus;
+            treeView.LostFocus += TreeView_LostFocus;
         }
 
-        private void btnLevel2_Click(object sender, RoutedEventArgs e) {
-            level2.Foreground = Brushes.Yellow;
+        private void TreeView_LostFocus(object sender, RoutedEventArgs e) {
+            btn_AddFolder.IsEnabled = false;
+            btn_AddFile.IsEnabled = false;
+        }
 
+        private void TreeView_GotFocus(object sender, RoutedEventArgs e) {
+            btn_AddFolder.IsEnabled = true;
+            btn_AddFile.IsEnabled = true;
+        }
+
+        private void btn_AddFolder_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void btn_AddFile_Click(object sender, RoutedEventArgs e) {
 
         }
     }

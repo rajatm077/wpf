@@ -6,65 +6,70 @@
         xmlns:local="clr-namespace:Directory"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    
-    <Grid Margin="10">
-        
-        <!--<TreeView>
-            <TreeViewItem Header="Level 1" IsExpanded="True">
-                <TreeViewItem Header="Level 2.1" />
-                <TreeViewItem Header="Level 2.2" IsExpanded="True">
-                    <TreeViewItem Header="Level 2.2.1" />
-                    <TreeViewItem Header="Level 2.2.2" />
-                </TreeViewItem>
-                <TreeViewItem Header="Level 2.3" />                
-            </TreeViewItem>
-        </TreeView>-->
 
-        <TreeView>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TreeView Grid.Row="0" Margin="5" x:Name="treeView" >
             <TreeViewItem IsExpanded="True"
-                          x:Name="level1">
+                          x:Name="tvm_DestinationComputer">
                 <TreeViewItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <!--<Image Source="" />-->
-                        <TextBlock Text="Level 1"/>
-                        <Button Content="Change color"
-                                Name="btnLevel1"
-                                Margin="10,0,0,0"
-                                Click="btnLevel1_Click" />
+                        <Image Source="icons\ComputerIcon.png" Margin="5,0,5,0"/>
+                        <TextBlock Text="Destination Computer" />
                     </StackPanel>
                 </TreeViewItem.Header>
 
-                <TreeViewItem >
+                <TreeViewItem x:Name="tvm_AppDataFolder">
                     <TreeViewItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Level 2.1"/>
+                            <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
+                            <TextBlock Text="[AppDataFolder]"/>
                         </StackPanel>
                     </TreeViewItem.Header>
                 </TreeViewItem>
 
-                <TreeViewItem IsExpanded="True" 
-                              x:Name="level2">
+                <TreeViewItem x:Name="tvm_CommonFilesFolder">
                     <TreeViewItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <!--<Image Source="" />-->
-                            <TextBlock Text="Level 2.2"/>
-
-                            <Button Content="Change color"
-                                Name="btnLevel2"
-                                Margin="10,0,0,0"
-                                Click="btnLevel2_Click" />
+                            <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
+                            <TextBlock Text="[CommonFilesFolder]"/>
                         </StackPanel>
                     </TreeViewItem.Header>
-                    <TreeViewItem>
-                        <TreeViewItem.Header>
-                            <TextBlock Text="Level 3.1"
-                                       Foreground="RoyalBlue" />
-                        </TreeViewItem.Header>
-                    </TreeViewItem>
+                </TreeViewItem>
+
+                <TreeViewItem x:Name="tvm_ProgramFilesFolder">
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
+                            <TextBlock Text="[ProgramFilesFolder]"/>
+                        </StackPanel>
+                    </TreeViewItem.Header>
                 </TreeViewItem>
             </TreeViewItem>
-            
         </TreeView>
-        
+
+        <StackPanel Grid.Row="1" 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="5">
+            
+            <Button x:Name="btn_AddFolder" 
+                    Content="Add Folder"
+                    Height="30"
+                    Width="70"                    
+                    Click="btn_AddFolder_Click"  />
+
+            <Button x:Name="btn_AddFile" 
+                    Content="Add File"
+                    Height="30"
+                    Width="70"                    
+                    Click="btn_AddFile_Click" 
+                    Margin="10,0,0,0"/>
+        </StackPanel>
     </Grid>
 </Window>
