@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Directory"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="720">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -13,46 +13,55 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-        <TreeView Grid.Row="0" Margin="5" x:Name="treeView" >
-            <TreeViewItem IsExpanded="True"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />           
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Row="0" Grid.Column="0">
+            <TreeView Grid.Row="0" Margin="5" x:Name="treeView" Grid.Column="0" BorderThickness="0">
+                <TreeViewItem IsExpanded="True"
                           x:Name="tvm_DestinationComputer">
-                <TreeViewItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="icons\ComputerIcon.png" Margin="5,0,5,0"/>
-                        <TextBlock Text="Destination Computer" />
-                    </StackPanel>
-                </TreeViewItem.Header>
-
-                <TreeViewItem x:Name="tvm_AppDataFolder">
                     <TreeViewItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
-                            <TextBlock Text="[AppDataFolder]"/>
+                            <Image Source="icons\ComputerIcon.png" Margin="5,0,5,0"/>
+                            <TextBlock Text="Destination Computer" />
                         </StackPanel>
                     </TreeViewItem.Header>
-                </TreeViewItem>
 
-                <TreeViewItem x:Name="tvm_CommonFilesFolder">
-                    <TreeViewItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
-                            <TextBlock Text="[CommonFilesFolder]"/>
-                        </StackPanel>
-                    </TreeViewItem.Header>
-                </TreeViewItem>
+                    <TreeViewItem x:Name="tvm_AppDataFolder">
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
+                                <TextBlock Text="[AppDataFolder]"/>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
 
-                <TreeViewItem x:Name="tvm_ProgramFilesFolder">
-                    <TreeViewItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
-                            <TextBlock Text="[ProgramFilesFolder]"/>
-                        </StackPanel>
-                    </TreeViewItem.Header>
-                </TreeViewItem>
-            </TreeViewItem>
-        </TreeView>
+                    <TreeViewItem x:Name="tvm_CommonFilesFolder">
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
+                                <TextBlock Text="[CommonFilesFolder]"/>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
 
+                    <TreeViewItem x:Name="tvm_ProgramFilesFolder">
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
+                                <TextBlock Text="[ProgramFilesFolder]"/>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+        </GroupBox>
+        <GroupBox Grid.Row="0" Grid.Column="1">
+            <Button Content="Let's check" />
+        </GroupBox>
         <StackPanel Grid.Row="1" 
+                    Grid.Column="0"
                     Orientation="Horizontal"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
