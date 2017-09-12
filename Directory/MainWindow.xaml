@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Directory"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="720">
+        Title="MainWindow" Height="500" Width="820">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -14,13 +14,15 @@
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />           
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />           
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
+        
         <GroupBox Grid.Row="0" Grid.Column="0">
-            <TreeView Grid.Row="0" Margin="5" x:Name="treeView" Grid.Column="0" BorderThickness="0">
+            <!--<TreeView Grid.Row="0" Margin="5" x:Name="treeView" Grid.Column="0" BorderThickness="0">
+            
                 <TreeViewItem IsExpanded="True"
-                          x:Name="tvm_DestinationComputer">
+                          x:Name="TARGETDIR">
                     <TreeViewItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="icons\ComputerIcon.png" Margin="5,0,5,0"/>
@@ -28,7 +30,7 @@
                         </StackPanel>
                     </TreeViewItem.Header>
 
-                    <TreeViewItem x:Name="tvm_AppDataFolder">
+                    <TreeViewItem x:Name="AppDataFolder">
                         <TreeViewItem.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
@@ -37,7 +39,7 @@
                         </TreeViewItem.Header>
                     </TreeViewItem>
 
-                    <TreeViewItem x:Name="tvm_CommonFilesFolder">
+                    <TreeViewItem x:Name="CommonFilesFolder">
                         <TreeViewItem.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
@@ -46,7 +48,7 @@
                         </TreeViewItem.Header>
                     </TreeViewItem>
 
-                    <TreeViewItem x:Name="tvm_ProgramFilesFolder">
+                    <TreeViewItem x:Name="ProgramFilesFolder">
                         <TreeViewItem.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="icons\FolderIcon.png" Margin="0,0,5,0"/>
@@ -55,7 +57,10 @@
                         </TreeViewItem.Header>
                     </TreeViewItem>
                 </TreeViewItem>
-            </TreeView>
+            </TreeView>-->
+            
+            <TreeView x:Name="treeView" />
+
         </GroupBox>
         <GroupBox Grid.Row="0" Grid.Column="1">
             <Button Content="Let's check" />
@@ -65,7 +70,7 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Margin="5">
+                    Margin="0,5,0,5">
             
             <Button x:Name="btn_AddFolder" 
                     Content="Add Folder"

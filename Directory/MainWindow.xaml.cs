@@ -20,7 +20,9 @@ namespace Directory {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-            EnableDisableButton();            
+            EnableDisableButton();     
+            GetDirectories.check(treeView);
+            
         }
 
         private void EnableDisableButton() {
